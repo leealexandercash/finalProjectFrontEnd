@@ -30,6 +30,12 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/users/:id/edit',
       templateUrl: '/templates/usersEdit.html',
       controller: 'UsersEditController as usersEdit'
+    })
+
+    .state('placesIndex', {
+      url: '/places',
+      templateUrl: '/templates/placesIndex.html',
+      controller: 'PlacesIndexController as placesIndex'
     });
 
   $urlRouterProvider.otherwise('/login');
