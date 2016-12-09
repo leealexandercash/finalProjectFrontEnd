@@ -1,0 +1,8 @@
+<h1>Show Page</h1>
+
+<h4>{{ usersShow.user.username }}</h4>
+<h4>{{ usersShow.user.email }}</h4>
+
+<button ng-if="usersShow.isLoggedIn()" ui-sref="usersEdit({ id: usersShow.user.id })" class="button">Edit</button>
+
+<button ng-if="usersShow.isLoggedIn()" ng-click="usersShow.delete()">Delete</button>
