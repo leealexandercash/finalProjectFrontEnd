@@ -1,0 +1,27 @@
+<h1>New Listing</h1>
+
+<form novalidate ng-submit="listingsNew.submit()">
+
+  <div>
+    <label>name</label>
+    <input type="text" placeholder="Item name" ng-model="listingsNew.listing.name">
+  </div>
+
+  <div>
+    <label>Price</label>
+    <input type="float" placeholder="5.95" ng-model="listingNew.listing.price">
+  </div>
+
+  <div>
+    <label>Description</label>
+    <input type="text" placeholder="Description of the item..." ng-model="listingsNew.listing.description">
+  </div>
+
+  <div>
+    <input type="hidden" ng-model="listingsNew.listing.image">
+    <input type="hidden" ng-model="listingsNew.listing.place_id">
+  </div>
+
+  <button>Submit</button>
+
+</form>

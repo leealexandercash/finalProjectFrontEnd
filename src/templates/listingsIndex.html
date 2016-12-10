@@ -1,0 +1,10 @@
+<h1>Listings Index</h1>
+
+<ul>
+
+  <li ng-repeat="listing in listingsIndex.all">
+    <h2>{{ listing }}</h2>
+    <button ui-sref="listingsShow({ id: listing.id })">Show</button>
+  </li>
+
+</ul>
