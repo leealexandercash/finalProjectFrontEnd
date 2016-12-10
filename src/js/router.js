@@ -36,6 +36,12 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/places',
       templateUrl: '/templates/placesIndex.html',
       controller: 'PlacesIndexController as placesIndex'
+    })
+
+    .state('placesShow', {
+      url: '/places/:id',
+      templateUrl: '/templates/placesShow.html',
+      controller: 'PlacesShowController as placesShow'
     });
 
   $urlRouterProvider.otherwise('/login');
