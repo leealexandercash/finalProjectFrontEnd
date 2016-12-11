@@ -32,7 +32,7 @@ function googleMap($window) {
 
             const infowindow = new $window.google.maps.InfoWindow({
               content: `<div>${ place.name }</div>
-              <a href="http://localhost:8000/#!/places/${ place.id }">Click Here To View Listings For This Place ${ place.id }</a>`
+              <a href="http://localhost:8000/#/places/${ place.id }">Click Here To View Listings For This Place ${ place.id }</a>`
             });
 
             marker.addListener('click', function() {

@@ -6,9 +6,10 @@
 <p>
   <strong>Listings for this place:</strong>
   <ul>
-    <% placesShow.place.listings.each do |listing| %>
-    <li><%= listing.name %></li>
-    <% end %>
+    <li ng-repeat="listing in placesShow.place.listings">
+      <p>{{ listing.name }}</p>
+      <img ng-src="{{ listing.image }}">
+    </li>
   </ul>
 </p>
 
