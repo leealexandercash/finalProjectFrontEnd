@@ -2,24 +2,19 @@
 
 <form novalidate ng-submit="placesNew.submit()">
 
-  {{ placesNew.place }}
-
   <div>
     <label>Address</label>
     <input type="text" ng-model="placesNew.place.address" google-place place="placesNew.place">
   </div>
 
+  <div>{{ placesNew.place.name }}</div>
+  <div>{{ placesNew.place.address }}</div>
+
+
+  <div><br></div>
+
 <button>Confirm Place</button>
 
 </form>
 
-
-<!-- t.string   "google_place_id"
-t.string   "address"
-t.string   "phone_number"
-t.float    "lat"
-t.float    "lng"
-t.string   "icon"
-t.string   "name"
-t.float    "rating"
-t.string   "website" -->
+<google-map><google-map>

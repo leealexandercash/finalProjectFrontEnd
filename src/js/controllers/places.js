@@ -51,7 +51,8 @@ function PlacesNewController(Place, $state) {
   function submit() {
     Place.save(placesNew.place)
       .then(() => {
-        $state.go('listingsNew(place)');
+        console.log('gets here!');
+        $state.go('placesIndex');
       });
   }
 

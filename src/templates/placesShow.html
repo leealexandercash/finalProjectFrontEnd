@@ -3,5 +3,14 @@
 <h4>{{ placesShow.place.name }}</h4>
 <h4>{{ placesShow.place.address }}</h4>
 
+<p>
+  <strong>Listings for this place:</strong>
+  <ul>
+    <% placesShow.place.listings.each do |listing| %>
+    <li><%= listing.name %></li>
+    <% end %>
+  </ul>
+</p>
+
 <button ng-click="placesShow.edit()">Edit</button>
 <button ng-click="placesShow.delete()">Delete</button>
