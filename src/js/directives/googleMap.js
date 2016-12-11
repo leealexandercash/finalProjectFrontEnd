@@ -21,6 +21,7 @@ function googleMap($window) {
       });
 
       $scope.$watch('places.length', () => {
+        console.log($scope.places.length);
         if($scope.places.length > 0) {
           $scope.places.forEach((place) => {
             const marker = new $window.google.maps.Marker({

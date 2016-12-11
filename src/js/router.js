@@ -38,22 +38,28 @@ function Router($stateProvider, $urlRouterProvider) {
       controller: 'PlacesIndexController as placesIndex'
     })
 
+    .state('placesNew', {
+      url: '/places/new',
+      templateUrl: '/templates/placesNew.html',
+      controller: 'PlacesNewController as placesNew'
+    })
+
     .state('placesShow', {
       url: '/places/:id',
       templateUrl: '/templates/placesShow.html',
       controller: 'PlacesShowController as placesShow'
     })
 
-    .state('listingsNew', {
-      url: '/listings',
-      templateUrl: '/templates/listingsNew.html',
-      controller: 'ListingsNewController as listingsNew'
-    })
-
     .state('listingsIndex', {
       url: '/listings',
       templateUrl: '/templates/listingsIndex.html',
       controller: 'ListingsIndexController as listingsIndex'
+    })
+
+    .state('listingsNew', {
+      url: '/listings/new',
+      templateUrl: '/templates/listingsNew.html',
+      controller: 'ListingsNewController as listingsNew'
     })
 
     .state('listingsShow', {

@@ -8,11 +8,9 @@ function googlePlace($window) {
     restrict: 'A',
     require: 'ngModel',
     scope: {
-      location: '=',
-      lat: '=',
-      lng: '='
+      place: '='
     },
-    link: function(scope, element, attrs, model) {
+    link: function($scope, element, attrs, model) {
       const options = {
         types: [],
         componentRestrictions: {}
@@ -23,8 +21,11 @@ function googlePlace($window) {
       autocomplete.addListener('place_changed', () => {
         const place = autocomplete.getPlace();
         const latLng = place.geometry.location.toJSON();
-        scope.lat = latLng.lat;
-        scope.lng = latLng.lng;
+
+        $scope.place.lat = latLng.lat;
+        $scope.place.lng = latLng.lng;
+
+
         model.$setViewValue(element.val());
       });
     }

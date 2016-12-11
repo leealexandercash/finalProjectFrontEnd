@@ -1,6 +1,7 @@
 angular.module('finalProject')
 .controller('PlacesIndexController', PlacesIndexController)
-.controller('PlacesShowController', PlacesShowController);
+.controller('PlacesShowController', PlacesShowController)
+.controller('PlacesNewController', PlacesNewController);
 
 PlacesIndexController.$inject = ['Place'];
 function PlacesIndexController(Place) {
@@ -39,4 +40,20 @@ function PlacesEditController(Place, $state) {
 
   this.update = update;
 
+}
+
+PlacesNewController.$inject = ['Place', '$state'];
+function PlacesNewController(Place, $state) {
+  const placesNew = this;
+
+  placesNew.place = {};
+
+  function submit() {
+    Place.save(placesNew.place)
+      .then(() => {
+        $state.go('listingsNew(place)');
+      });
+  }
+
+  placesNew.submit = submit;
 }
