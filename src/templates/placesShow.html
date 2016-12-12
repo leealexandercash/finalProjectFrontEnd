@@ -8,12 +8,11 @@
   <ul>
     <li ng-repeat="listing in placesShow.place.listings">
       <p>{{ listing.name }}</p>
+      <img ng-src="{{ listing.image }}">
       <p>{{ listing.price }}</p>
       <p>{{ listing.description }}</p>
-      <img ng-src="{{ listing.image }}">
-      <br>
-      <button ng-click="listingsShow.edit(listing)">Edit</button>
-      <button ng-click="listingShow.delete(listing)">Delete</button>
+      <button ui-sref="listingsEdit( { id: listing.id } )">Edit</button>
+      <button ng-click="listingDelete.delete()">Delete</button>
     </li>
   </ul>
 </p>

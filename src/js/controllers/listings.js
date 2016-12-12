@@ -29,12 +29,11 @@ function ListingsShowController(Listing, $state) {
 ListingsEditController.$inject = ['Listing', '$state'];
 function ListingsEditController(Listing, $state) {
   const listingsEdit = this;
-
   listingsEdit.listing = Listing.get($state.params);
 
   function update() {
-    listingsEdit.listing.$update(() => {
-      $state.go('listingsShow', $state.params);
+    listingsEdit.listing.$update((listing) => {
+      $state.go('placesShow', { id: listing.place.id });
     });
   }
   listingsEdit.update = update;
@@ -44,13 +43,14 @@ ListingsNewController.$inject = ['Listing', '$state'];
 function ListingsNewController(Listing, $state) {
   const listingsNew = this;
 
-  listingsNew.listing = {};
+  listingsNew.listing = {
+    place_id: $state.params.placeId
+  };
 
   function submit() {
-    Listing.create(listingsNew.listing)
-      .then(() => {
-        $state.go('placesShow', $state.params);
-      });
+    Listing.save(listingsNew.listing, (listing) => {
+      $state.go('placesShow', { id: listing.place.id });
+    });
   }
   listingsNew.submit = submit;
 }

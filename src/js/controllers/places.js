@@ -45,11 +45,10 @@ function PlacesNewController(Place, $state) {
   placesNew.place = {};
 
   function submit() {
-    Place.save(placesNew.place)
-      .then(() => {
-        console.log('gets here!');
-        $state.go('listingsNew', placesNew.place);
-      });
+    Place.save(placesNew.place, (place) => {
+      console.log('gets here!');
+      $state.go('listingsNew', { placeId: place.id });
+    });
   }
   placesNew.submit = submit;
 }

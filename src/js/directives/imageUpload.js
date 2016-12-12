@@ -9,13 +9,16 @@ function imageUpload () {
     restrict: 'E',
     replace: true,
     templateUrl: '/templates/imageUpload.html',
+    scope: {
+      base64: '='
+    },
     link($scope, element) {
 
-      $scope.base64String = null;
+      $scope.base64 = null;
       $scope.active = false;
 
       reader.onload = () => {
-        $scope.base64String = reader.result;
+        $scope.base64 = reader.result;
         $scope.$apply();
       };
 

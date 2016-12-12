@@ -44,6 +44,12 @@ function Router($stateProvider, $urlRouterProvider) {
       controller: 'PlacesNewController as placesNew'
     })
 
+    .state('listingsNew', {
+      url: '/places/:placeId/listings/new',
+      templateUrl: '/templates/listingsNew.html',
+      controller: 'ListingsNewController as listingsNew'
+    })
+
     .state('placesShow', {
       url: '/places/:id',
       templateUrl: '/templates/placesShow.html',
@@ -56,17 +62,18 @@ function Router($stateProvider, $urlRouterProvider) {
       controller: 'ListingsIndexController as listingsIndex'
     })
 
-    .state('listingsNew', {
-      url: '/listings/new',
-      templateUrl: '/templates/listingsNew.html',
-      controller: 'ListingsNewController as listingsNew'
+    .state('listingsEdit', {
+      url: '/listings/:id/edit',
+      templateUrl: '/templates/listingsEdit.html',
+      controller: 'ListingsEditController as listingsEdit'
     })
-    
+
     .state('listingsShow', {
       url: '/listings/:id',
       templateUrl: '/templates/listingsShow.html',
       controller: 'ListingsShowController as listingsShow'
     });
+
 
   $urlRouterProvider.otherwise('/login');
 }

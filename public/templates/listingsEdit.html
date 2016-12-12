@@ -1,0 +1,26 @@
+<h1>Update Listing</h1>
+
+<form novalidate ng-submit="listingsEdit.update()">
+
+  <div>
+    <label>Food Item Name</label>
+    <input type="text" placeholder="Item name" ng-model="listingsEdit.listing.name">
+  </div>
+
+  <div>
+    <img ng-src="listingsEdit.listing.image">
+  </div>
+
+  <div>
+    <label>Price Per Item (optional)</label>
+    <input type="float" placeholder="e.g. 5.95" ng-model="listingsEdit.listing.price">
+  </div>
+
+  <div>
+    <label>Description (optional)</label>
+    <input type="text" placeholder="Description of the item..." ng-model="listingsEdit.listing.description">
+  </div>
+
+  <button>Update</button>
+
+</form>
