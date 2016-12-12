@@ -9,3 +9,19 @@
 body {
   text-align: center;
 }
+
+.image-upload {
+  min-height: 300px;
+  width: 200px;
+  border-radius: 5px;
+  border: 5px solid black;
+  margin: auto;
+
+  img {
+    width: 100%;
+  }
+
+  &.active {
+    background-color: #aaa;
+  }
+}

@@ -61,7 +61,7 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/listingsNew.html',
       controller: 'ListingsNewController as listingsNew'
     })
-
+    
     .state('listingsShow', {
       url: '/listings/:id',
       templateUrl: '/templates/listingsShow.html',

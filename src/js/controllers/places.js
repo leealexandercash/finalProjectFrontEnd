@@ -8,7 +8,6 @@ function PlacesIndexController(Place) {
   const placesIndex = this;
 
   placesIndex.all = Place.query();
-
 }
 
 PlacesShowController.$inject = ['Place', '$state'];
@@ -22,7 +21,6 @@ function PlacesShowController(Place, $state) {
       $state.go('placesIndex');
     });
   }
-
   placesShow.delete = deletePlace;
 }
 
@@ -37,9 +35,7 @@ function PlacesEditController(Place, $state) {
       $state.go('placesShow', $state.params);
     });
   }
-
-  this.update = update;
-
+  placesEdit.update = update;
 }
 
 PlacesNewController.$inject = ['Place', '$state'];
@@ -52,9 +48,8 @@ function PlacesNewController(Place, $state) {
     Place.save(placesNew.place)
       .then(() => {
         console.log('gets here!');
-        $state.go('placesIndex');
+        $state.go('listingsNew', placesNew.place);
       });
   }
-
   placesNew.submit = submit;
 }

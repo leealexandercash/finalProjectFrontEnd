@@ -5,11 +5,11 @@ angular.module('finalProject')
 .controller('ListingsEditController', ListingsEditController);
 
 ListingsIndexController.$inject = ['Listing'];
+
 function ListingsIndexController(Listing) {
   const listingsIndex = this;
 
   listingsIndex.all = Listing.query();
-
 }
 
 ListingsShowController.$inject = ['Listing', '$state'];
@@ -23,7 +23,6 @@ function ListingsShowController(Listing, $state) {
       $state.go('listingsIndex');
     });
   }
-
   listingsShow.delete = deleteListing;
 }
 
@@ -38,23 +37,20 @@ function ListingsEditController(Listing, $state) {
       $state.go('listingsShow', $state.params);
     });
   }
-
   listingsEdit.update = update;
-
 }
 
 ListingsNewController.$inject = ['Listing', '$state'];
-function ListingsNewController($listing, $state) {
+function ListingsNewController(Listing, $state) {
   const listingsNew = this;
 
   listingsNew.listing = {};
 
   function submit() {
-    $listing.create($state.params)
+    Listing.create(listingsNew.listing)
       .then(() => {
-        $state.go('listingsIndex');
+        $state.go('placesShow', $state.params);
       });
   }
-
   listingsNew.submit = submit;
 }

@@ -29,7 +29,6 @@ function MainController($auth, $state, $rootScope) {
       main.message = 'You must be logged in to go there';
     }
   }
-
   $rootScope.$on('$stateChangeStart', secureState);
 
   main.logout = logout;

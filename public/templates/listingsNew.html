@@ -1,19 +1,22 @@
-<h1>New Listing</h1>
+<h1>Add your photo and listing information</h1>
+
+<image-upload></image-upload>
 
 <form novalidate ng-submit="listingsNew.submit()">
 
+
   <div>
-    <label>name</label>
+    <label>Food Item Name</label>
     <input type="text" placeholder="Item name" ng-model="listingsNew.listing.name">
   </div>
 
   <div>
-    <label>Price</label>
-    <input type="float" placeholder="5.95" ng-model="listingNew.listing.price">
+    <label>Price Per Item (optional)</label>
+    <input type="float" placeholder="e.g. 5.95" ng-model="listingNew.listing.price">
   </div>
 
   <div>
-    <label>Description</label>
+    <label>Description (optional)</label>
     <input type="text" placeholder="Description of the item..." ng-model="listingsNew.listing.description">
   </div>
 
