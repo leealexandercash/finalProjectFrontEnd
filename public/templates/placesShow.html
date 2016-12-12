@@ -8,10 +8,12 @@
   <ul>
     <li ng-repeat="listing in placesShow.place.listings">
       <p>{{ listing.name }}</p>
+      <p>{{ listing.price }}</p>
+      <p>{{ listing.description }}</p>
       <img ng-src="{{ listing.image }}">
+      <br>
+      <button ng-click="listingsShow.edit(listing)">Edit</button>
+      <button ng-click="listingShow.delete(listing)">Delete</button>
     </li>
   </ul>
 </p>
-
-<button ng-click="placesShow.edit()">Edit</button>
-<button ng-click="placesShow.delete()">Delete</button>
