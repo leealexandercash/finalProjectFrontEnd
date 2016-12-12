@@ -10,8 +10,8 @@ function PlacesIndexController(Place) {
   placesIndex.all = Place.query();
 }
 
-PlacesShowController.$inject = ['Place', '$state'];
-function PlacesShowController(Place, $state) {
+PlacesShowController.$inject = ['Place', '$state', 'Listing'];
+function PlacesShowController(Place, $state, Listing) {
   const placesShow = this;
 
   placesShow.place = Place.get($state.params);
@@ -21,6 +21,15 @@ function PlacesShowController(Place, $state) {
       $state.go('placesIndex');
     });
   }
+
+  function deleteListing(listing) {
+    console.log(listing);
+    Listing.listing.remove(() => {
+      $state.go('listingsIndex');
+    });
+  }
+
+  placesShow.deleteListing = deleteListing;
   placesShow.delete = deletePlace;
 }
 

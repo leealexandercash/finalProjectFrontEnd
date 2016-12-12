@@ -24,21 +24,23 @@ function googleMap($window) {
         console.log($scope.places.length);
         if($scope.places.length > 0) {
           $scope.places.forEach((place) => {
-            const marker = new $window.google.maps.Marker({
-              position: { lat: place.lat, lng: place.lng },
-              map: map,
-              animation: $window.google.maps.Animation.DROP
-            });
 
-            const infowindow = new $window.google.maps.InfoWindow({
-              content: `<div>${ place.name }</div>
-              <a href="http://localhost:8000/#/places/${ place.id }">Click Here To View Listings For This Place ${ place.id }</a>`
-            });
+            if(place.listings.length > 0) {
+              const marker = new $window.google.maps.Marker({
+                position: { lat: place.lat, lng: place.lng },
+                map: map,
+                animation: $window.google.maps.Animation.DROP
+              });
 
-            marker.addListener('click', function() {
-              infowindow.open(map,marker);
-            });
+              const infowindow = new $window.google.maps.InfoWindow({
+                content: `<div>${ place.name }</div>
+                <a href="http://localhost:8000/#/places/${ place.id }">Click Here To View Listings For This Place ${ place.id }</a>`
+              });
 
+              marker.addListener('click', function() {
+                infowindow.open(map,marker);
+              });
+            }
           });
         }
       });

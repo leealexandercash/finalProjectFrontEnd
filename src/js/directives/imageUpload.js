@@ -1,7 +1,8 @@
 angular.module('finalProject')
   .directive('imageUpload', imageUpload);
 
-function imageUpload () {
+imageUpload.$inject = ['$window'];
+function imageUpload ($window) {
 
   const reader = new FileReader();
 
@@ -13,6 +14,12 @@ function imageUpload () {
       base64: '='
     },
     link($scope, element) {
+      $scope.isMobile = (('ontouchstart' in $window)||($window.navigator.maxTouchPoints > 0)||($window.navigator.msMaxTouchPoints > 0));
+
+      function parseFile(e) {
+        const file = (e.target.files || e.dataTransfer.files)[0];
+        reader.readAsDataURL(file);
+      }
 
       $scope.base64 = null;
       $scope.active = false;
@@ -37,10 +44,18 @@ function imageUpload () {
         .on('drop', (e) => {
           e.preventDefault();
 
-          const file = (e.target.files || e.dataTransfer.files)[0];
-
-          reader.readAsDataURL(file);
+          parseFile(e);
         });
+
+      angular.element(document).ready(function() {
+        const fileInput = angular.element(element[0].querySelector('input[type="file"]'));
+
+        if(fileInput) {
+          fileInput.on('change', (e) => {
+            parseFile(e);
+          });
+        }
+      });
     }
   };
 }
