@@ -54,7 +54,7 @@ function googleMap($window) {
             lng: position.coords.longitude
           };
           map.setCenter(pos);
-          map.setZoom(18);
+          map.setZoom(17);
         });
       }
 

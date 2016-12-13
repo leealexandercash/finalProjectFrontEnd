@@ -75,5 +75,5 @@ function Router($stateProvider, $urlRouterProvider) {
     });
 
 
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/places');
 }
