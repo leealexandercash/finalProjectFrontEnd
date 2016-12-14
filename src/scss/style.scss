@@ -78,7 +78,7 @@ button {
   background-image: url("http://assets.londonist.com/uploads/2015/08/vegan.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 70vh;
+  height: 100vh;
  }
 
 .login-text {
@@ -90,5 +90,9 @@ button {
   height: 200px;
   margin: 60px auto;
   padding: 10px;
+  width: 50%;
+}
+
+#login-button {
   width: 50%;
 }
