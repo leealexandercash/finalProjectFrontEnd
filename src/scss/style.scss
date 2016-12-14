@@ -1,42 +1,94 @@
-@import "normalize";
-@import "skeleton";
+// Imports
 
-.google-map {
-  width: 100%;
-  height: 50vh;
-}
+@import 'normalize';
+@import 'skeleton';
 
+// SCSS Variables
+
+// Colours Section
+$google-map-grey: #eaeaea;
+$image-active-colour: #cae6a2;
+$black: #000;
+$vegan-green: #5cb75c;
+$vegan-blue: #6b90ff;
+
+// Fonts section
+$text-font: 'Roboto', sans-serif;
+
+// HTML Elements
 body {
+  background-color: $google-map-grey;
+  font-family: $text-font;
   text-align: center;
 }
 
+li {
+  list-style: none;
+}
+
+button {
+  font-size: 1em;
+}
+
+// Classes
 .image-upload {
-  min-height: 300px;
-  width: 50vw;
+  border: 5px dashed $black;
   border-radius: 5px;
-  border: 5px solid black;
   margin: auto;
+  min-height: 300px;
   position: relative;
+  width: 50vw;
 
   img {
     width: 100%;
   }
 
   &.active {
-    background-color: #aaa;
+    background-color: $image-active-colour;
   }
 
   input[type=file] {
-    width: 100%;
+    display: block;
     height: 100%;
+    left: 0;
+    opacity: 0;
     position: absolute;
     top: 0;
-    left: 0;
-    display: block;
-    opacity: 0;
+    width: 100%;
   }
 }
 
-li {
-  list-style: none;
+.google-map {
+  height: 60vh;
+  width: 100%;
+}
+
+.green {
+  background-color: $vegan-green;
+  color: $black;
+}
+
+.blue {
+  background-color: $vegan-blue;
+  color: $black;
+}
+
+.login-background {
+  padding-top: 20px;
+  background-image: url("http://assets.londonist.com/uploads/2015/08/vegan.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 70vh;
+ }
+
+.login-text {
+  background-color: $vegan-green;
+  opacity: 0.6;
+  border-radius: 5px;
+  color: $black;
+  font-family: $text-font;
+  height: 200px;
+  margin: 60px auto;
+  padding: 10px;
+  width: 50%;
 }

@@ -1,13 +1,40 @@
 <div class="container">
 
-<h1>Nearby vegan options</h1>
-  <!-- columns should be the immediate child of a .row -->
+  <br>
+
   <div class="row">
-    <div class="one column"></div>
-    <div class="ten columns">
-      <google-map places="placesIndex.all"></google-map>
+
+    <div class="six columns">
+      <a class="button large blue u-full-width" ng-if="!main.isLoggedIn()" ui-sref="login" ui-sref-active="active">Login</a>
+
+      <a class="button large blue u-full-width" ng-if="main.isLoggedIn()" ng-click="main.logout()" ui-sref-active="active" >Logout</a>
+
     </div>
-    <div class="one column"></div>
+
+    <div class="six columns">
+
+      <a class="button blue u-full-width" ng-if="!main.isLoggedIn()" ui-sref="register" ui-sref-active="active">Register</a>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <h3>Nearby vegan options</h3>
+
+    <div class="row">
+      <div class="twelve columns">
+        <google-map places="placesIndex.all"></google-map>
+      </div>
+    </div>
+
+    <br>
+
+    <a class="button green u-full-width" ng-if="main.isLoggedIn()" ui-sref="placesNew" ui-sref-active="active">Share New Listing!</a>
+
+    <a class="button green u-full-width" ng-if="!main.isLoggedIn()" ui-sref="login" ui-sref-active="active">Log in to Share a New Listing!</a>
+
   </div>
 
 </div>

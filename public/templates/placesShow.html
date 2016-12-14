@@ -1,23 +1,49 @@
+<div class="container">
+
 <h1>Places Show Page</h1>
 
 <h4>{{ placesShow.place.name }}</h4>
-<h4>{{ placesShow.place.address }}</h4>
-<p>{{ placesShow.place.phone_number}}</p>
+<h5>{{ placesShow.place.address }}</h5>
+<p>Telephone: {{ placesShow.place.phone_number}}</p>
 <img ng-src="{{ placesShow.place.icon }}">
 <p>Rating: {{ placesShow.place.rating}}</p>
 <a href="{{ placesShow.place.website}}"><p>{{ placesShow.place.website}}</p></a>
 
-<p>
-  <strong>Listings for this place:</strong>
+<p ng-if="placesShow.place.listings > 0">
+  <strong>Items shared:</strong>
   <ul>
     <li ng-repeat="listing in placesShow.place.listings">
       <p>{{ listing.name }}</p>
       <img ng-src="{{ listing.image }}">
-      <p>{{ listing.price }}</p>
+      <p>£{{ listing.price }}</p>
       <p>{{ listing.description }}</p>
       <button ui-sref="listingsEdit( { id: listing.id } )">Edit</button>
     </li>
   </ul>
 </p>
 
-<google-map places="placesShow.place"><google-map>
+
+
+  <div class="row">
+    <div class="one column">
+    </div>
+
+    <div class="ten columns">
+
+      <p>Click the map for directions!</p>
+      <a href="http://maps.google.com/maps?f=q&hl=en&q={{placesShow.place.lat}},{{placesShow.place.lng}}">
+        <google-map place="placesShow.place"></google-map>
+        <a>
+
+          <br>
+
+    </div>
+        <div class="one column">
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <button ng-if="main.isLoggedIn()"><a ui-sref="listingsNew({ placeId: placesShow.place.id })" ui-sref-active="active">Share New Listing!</a></button>

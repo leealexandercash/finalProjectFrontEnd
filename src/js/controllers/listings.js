@@ -20,7 +20,7 @@ function ListingsShowController(Listing, $state) {
 
   function deleteListing() {
     listingsShow.listing.$remove(() => {
-      $state.go('listingsIndex');
+      $state.go('placesIndex');
     });
   }
   listingsShow.delete = deleteListing;

@@ -10,9 +10,17 @@ function PlacesIndexController(Place) {
   placesIndex.all = Place.query();
 }
 
-PlacesShowController.$inject = ['Place', '$state', 'Listing'];
-function PlacesShowController(Place, $state, Listing) {
+PlacesShowController.$inject = ['Place', '$state', 'Listing', '$auth'];
+function PlacesShowController(Place, $state, Listing, $auth) {
   const placesShow = this;
+
+  function isCurrentUser() {
+    return $auth.isAuthenticated() && placesShow.place && $auth.getPayload().id === placesShow.place.user.id;
+  }
+
+  placesShow.isCurrentUser = isCurrentUser;
+
+  console.log(Place.get({id: 10}));
 
   placesShow.place = Place.get($state.params);
 

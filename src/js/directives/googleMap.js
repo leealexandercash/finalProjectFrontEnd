@@ -9,20 +9,52 @@ function googleMap($window) {
     replace: true,
     template: '<div class="google-map">Google Map Here</div>',
     scope: {
-      places: '='
+      places: '=',
+      place: '='
     },
     link: function ($scope, element) {
+
       const map = new $window.google.maps.Map(element[0], {
         center: {
-          lat: 51.5087903,
-          lng: -0.1137814
+          lat: 51.51522,
+          lng: -0.07214
         },
-        zoom: 14
+        zoom: 17
+      });
+
+      $scope.$watch('place.$resolved', () => {
+        if($scope.place.lat && $scope.place.lng) {
+          const pos = {
+            lat: $scope.place.lat,
+            lng: $scope.place.lng
+          };
+
+          map.setCenter(pos);
+          map.setZoom(18);
+
+          new $window.google.maps.Marker({
+            position: pos,
+            map: map,
+            animation: $window.google.maps.Animation.DROP
+          });
+        }
       });
 
       $scope.$watch('places.length', () => {
-        console.log($scope.places.length);
+
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            const pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            map.setCenter(pos);
+            map.setZoom(17);
+          });
+        }
+
         if($scope.places.length > 0) {
+
           $scope.places.forEach((place) => {
 
             if(place.listings.length > 0) {
@@ -36,7 +68,7 @@ function googleMap($window) {
                 content: `<div>${ place.name }</div>
                 <a href="http://localhost:8000/#/places/${ place.id }">Click Here To View Listings For This Place ${ place.id }</a>`
               });
-
+              map.setZoom(17);
               marker.addListener('click', function() {
                 infowindow.open(map,marker);
               });
@@ -44,20 +76,6 @@ function googleMap($window) {
           });
         }
       });
-
-
-      // Try HTML5 geolocation else put the user in central London.
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          const pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };
-          map.setCenter(pos);
-          map.setZoom(17);
-        });
-      }
-
     }
   };
 }

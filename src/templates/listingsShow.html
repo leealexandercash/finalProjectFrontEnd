@@ -1,7 +1,8 @@
 <h1>Listings Show Page</h1>
 
-<h4>{{ listingsShow.listing.place_id }}</h4>
+<h4>{{ listingsShow.listing.place.name }}</h4>
 <h4>{{ listingsShow.listing.name }}</h4>
+<img ng-src="{{ listingsShow.listing.image }}">
 
 <button ng-click="listingsShow.edit()">Edit</button>
 <button ng-click="listingsShow.delete()">Delete</button>
