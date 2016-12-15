@@ -7,7 +7,7 @@ function googleMap($window) {
   return {
     restrict: 'E',
     replace: true,
-    template: '<div class="google-map">Google Map Here</div>',
+    template: '<div class="google-map"></div>',
     scope: {
       places: '=',
       place: '='

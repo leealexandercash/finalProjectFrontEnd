@@ -1,48 +1,57 @@
 <div class="container">
 
-<br>
-
-
-
-<h2>{{ placesShow.place.name }}</h2>
-<h5>{{ placesShow.place.address }}</h5>
-<p>Telephone: {{ placesShow.place.phone_number}}</p>
-<img ng-src="{{ placesShow.place.icon }}">
-<p>Rating: {{ placesShow.place.rating}}</p>
-<a href="{{ placesShow.place.website}}"><p>{{ placesShow.place.website}}</p></a>
-
-<p ng-if="placesShow.place.listings > 0">
-  <strong>Items shared:</strong>
-  <ul>
-    <li ng-repeat="listing in placesShow.place.listings">
-      <p>{{ listing.name }}</p>
-      <img ng-src="{{ listing.image }}">
-      <p>£{{ listing.price }}</p>
-      <p>{{ listing.description }}</p>
-      <button ui-sref="listingsEdit( { id: listing.id } )">Edit</button>
-    </li>
-  </ul>
-</p>
-
-
+  <br>
 
   <div class="row">
+
+    <div class="box-around">
+
+    <h1>{{ placesShow.place.name }}</h1>
+    <h5>{{ placesShow.place.address }}</h5>
+    <p>Telephone: {{ placesShow.place.phone_number}}</p>
+
+    <img ng-src="{{ placesShow.place.icon }}">
+    <p>Rating: {{ placesShow.place.rating}}</p>
+    <a href="{{ placesShow.place.website}}"><p>{{ placesShow.place.website}}</p></a>
+
+  </div>
+
+  </div>
+
+  <div class="row">
+
     <div class="twelve columns">
 
-      <p>Click the map for directions!</p>
-      <a href="http://maps.google.com/maps?f=q&hl=en&q={{placesShow.place.lat}},{{placesShow.place.lng}}">
-        <google-map place="placesShow.place"></google-map>
-        <a>
-
-          <br>
-
-    </div>
-        <div class="one column">
-        </div>
+      <div ng-if="placesShow.place.listings.length > 0">
+        <p>
+          <strong>Items shared:</strong>
+        </p>
+        <ul>
+          <li ng-repeat="listing in placesShow.place.listings">
+            <h1>{{ listing.name }}</h1>
+            <img width="95%" ng-src="{{ listing.image }}">
+            <h2>£{{ listing.price }}</h2>
+            <h3>{{ listing.description }}</h3>
+            <button ui-sref="listingsEdit( { id: listing.id } )">Edit</button>
+            <hr>
+          </li>
+        </ul>
       </div>
 
-
-
     </div>
 
-    <button ng-if="main.isLoggedIn()"><a ui-sref="listingsNew({ placeId: placesShow.place.id })" ui-sref-active="active">Share New Listing!</a></button>
+  </div>
+
+
+  <google-map place="placesShow.place"></google-map>
+
+  <br>
+
+    <a ng-if="main.isLoggedIn()" class="button blue" ui-sref="listingsNew({ placeId: placesShow.place.id })" ui-sref-active="active">Share A New Listing for {{ placesShow.place.name }}!</a>
+
+  <br>
+  <br>
+
+  <a class="button green" ui-sref="placesIndex" ui-sref-active="active">Home</a>
+
+</div>

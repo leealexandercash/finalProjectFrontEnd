@@ -83,6 +83,13 @@ button {
   width: 50%;
 }
 
+.box-around {
+  border: 3px solid $vegan-green;
+  border-radius: 20px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
 // IDs
 
 #login-button {
