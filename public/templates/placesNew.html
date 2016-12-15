@@ -1,20 +1,24 @@
-<h1>Find the place you'd like to make a listing for</h1>
+<div class="container">
 
-<form novalidate ng-submit="placesNew.submit()">
 
-  <div>
-    <label>Address</label>
-    <input type="text" ng-model="placesNew.place.address" google-place place="placesNew.place">
+  <h1>Find the place you'd like to make a listing for</h1>
+
+  <form novalidate ng-submit="placesNew.submit()">
+
+    <div>
+      <label>Address</label>
+      <input class="u-full-width" type="text" ng-model="placesNew.place.address" google-place place="placesNew.place">
+    </div>
+
+    <h3>{{ placesNew.place.address }}</h3>
+
+
+    <div><br></div>
+
+    <button class="button green">Confirm Place</button>
+
+  </form>
+
+  <google-map><google-map>
+
   </div>
-
-  <div>{{ placesNew.place.name }}</div>
-  <div>{{ placesNew.place.address }}</div>
-
-
-  <div><br></div>
-
-<button>Confirm Place</button>
-
-</form>
-
-<google-map><google-map>
