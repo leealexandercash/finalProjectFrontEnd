@@ -22,11 +22,13 @@ button {
 // Classes
 .image-upload {
   border: 5px dashed $black;
-  border-radius: 5px;
+  border-radius: 20px;
+  height: 50vw;
   margin: auto;
-  min-height: 300px;
+  max-height: 300px;
   position: relative;
   width: 50vw;
+
 
   img {
     width: 100%;
