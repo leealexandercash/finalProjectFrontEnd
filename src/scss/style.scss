@@ -2,18 +2,7 @@
 
 @import 'normalize';
 @import 'skeleton';
-
-// SCSS Variables
-
-// Colours Section
-$google-map-grey: #eaeaea;
-$image-active-colour: #cae6a2;
-$black: #000;
-$vegan-green: #5cb75c;
-$vegan-blue: #6b90ff;
-
-// Fonts section
-$text-font: 'Roboto', sans-serif;
+@import 'variables';
 
 // HTML Elements
 body {
@@ -74,11 +63,12 @@ button {
 }
 
 .login-background {
-  padding-top: 20px;
-  background-image: url("http://assets.londonist.com/uploads/2015/08/vegan.jpg");
+  // http://assets.londonist.com/uploads/2015/08/vegan.jpg
+  background-image: url('../images/vegan.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  padding-top: 20px;
  }
 
 .login-text {
@@ -88,10 +78,12 @@ button {
   color: $black;
   font-family: $text-font;
   height: 200px;
-  margin: 60px auto;
+  margin: 20px auto;
   padding: 10px;
   width: 50%;
 }
+
+// IDs
 
 #login-button {
   width: 50%;

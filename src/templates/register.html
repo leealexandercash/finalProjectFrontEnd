@@ -1,27 +1,83 @@
-<h1>Register</h1>
+<div class="container">
 
-<form novalidate ng-submit="register.submit()">
+  <div class="login-background">
 
-  <div>
-    <label>Username</label>
-    <input type="text" placeholder="Username" ng-model="register.user.username">
+    <form novalidate ng-submit="register.submit()">
+
+      <div class="row">
+
+        <div class="one column">
+        </div>
+
+        <div class="eleven columns">
+          <input class="u-full-width" type="text" placeholder="Username" ng-model="register.user.username">
+        </div>
+
+        <div class="one column">
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="one column">
+        </div>
+
+        <div class="eleven columns">
+          <input class="u-full-width" type="email" placeholder="Email" ng-model="register.user.email">
+        </div>
+
+        <div class="one column">
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="one column">
+        </div>
+
+        <div class="eleven columns">
+          <input class="u-full-width" type="password" placeholder="Password" ng-model="register.user.password">
+        </div>
+
+        <div class="one column">
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="one column">
+        </div>
+
+        <div class="eleven columns">
+          <input class="u-full-width" type="password" placeholder="Password Confirmation" ng-model="register.user.password_confirmation">
+        </div>
+
+        <div class="one column">
+        </div>
+
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <div>
+
+        <button id="login-button" class="button green">Register</button>
+
+      </form>
+
+      <div class="login-text">
+        <h4>Please register so you can share great vegan food that you find on the go.</h4>
+      </div>
+
+    </div>
+
   </div>
 
-  <div>
-    <label>Email</label>
-    <input type="email" placeholder="Email" ng-model="register.user.email">
-  </div>
-
-  <div>
-    <label>Password</label>
-    <input type="password" placeholder="Password" ng-model="register.user.password">
-  </div>
-
-  <div>
-    <label>Password Confirmation</label>
-    <input type="password" placeholder="Password Confirmation" ng-model="register.user.password_confirmation">
-  </div>
-
-  <button>Register</button>
-
-</form>
+</div>
